@@ -331,9 +331,9 @@ function Get-EntraSignInLogs {
 			else {					
 				$currentCount = $results.Count		
 				$summary.TotalRecords += $currentCount
-				Write-LogFile -Message "[INFO] Found $currentCount Directory Audit Logs between $($currentStart.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")) and $($currentEnd.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ"))" -Color "Green" -Level Standard
+				Write-LogFile -Message "[INFO] Found $currentCount Directory Non-Audit Logs between $($currentStart.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")) and $($currentEnd.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ"))" -Color "Green" -Level Standard
 					
-				$filePath = "$OutputDir\AuditLogs-$($CurrentStart.ToString("yyyyMMddHHmmss"))-$($CurrentEnd.ToString("yyyyMMddHHmmss")).json"
+				$filePath = "$OutputDir\Non-AuditLogs-$($CurrentStart.ToString("yyyyMMddHHmmss"))-$($CurrentEnd.ToString("yyyyMMddHHmmss")).json"
 				$results | ConvertTo-Json -Depth 100 | Out-File -Append $filePath -Encoding $Encoding
 				$summary.TotalFiles++
 	
